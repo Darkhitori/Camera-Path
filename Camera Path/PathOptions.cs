@@ -1,0 +1,66 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Darkhitori.PlaymakerActions._CameraPath
+{
+    using HutongGames.PlayMaker;
+    using CameraPath;
+
+
+    [ActionCategory("Camera Path")]
+    [Tooltip("")]
+    public class PathOptions : FsmStateAction
+    {
+        [RequiredField]
+        [CheckForComponent(typeof(TriggerChangePath))]
+        public FsmOwnerDefault gameObject;
+        
+        [Tooltip("")]
+        public TriggerChangePath.PathOptions[] pathOptions;
+        
+        [Tooltip("Repeat every frame while the state is active.")]
+        public bool everyFrame;
+
+        TriggerChangePath triggComp;
+        
+        public override void Reset()
+        {
+            gameObject = null;
+            pathOptions = new TriggerChangePath.PathOptions[1];
+            everyFrame = false;
+        }
+
+        // Code that runs on entering the state.
+        public override void OnEnter()
+        {
+            DoMethod();
+            if (!everyFrame)
+            {
+                Finish();
+            }
+        }
+        
+        public override void OnUpdate()
+        {
+            DoMethod();
+        }
+
+        void DoMethod()
+        {
+            var go = Fsm.GetOwnerDefaultTarget(gameObject);
+            if(go == null)
+            {
+                return;
+            }
+            
+            triggComp = go.GetComponent<TriggerChangePath>();
+            
+            triggComp.pathOptions = pathOptions;
+            
+        }
+
+
+    }
+
+}
