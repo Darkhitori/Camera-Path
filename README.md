@@ -21,3 +21,8 @@ Playmaker actions for Camera Path
 
 
 ![image alt](https://github.com/Darkhitori/Camera-Path/blob/e8803a9e78fa1117473ab0691e3a6fdde532c483/Screenshots/Screenshot%202024-10-04%20165505.png)
+
+
+
+
+![image alt](https://github.com/Darkhitori/Camera-Path/blob/3d4a74d3d5d8c80f857694f10ab16ba1ef844768/Screenshots/Screenshot%202024-10-04%20165516.png)
